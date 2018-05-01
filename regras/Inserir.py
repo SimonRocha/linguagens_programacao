@@ -12,7 +12,7 @@ def inserirPaciente(nome, documento, dt_nascimento, dt_entrada):
         return 0
 
 
-def inserirAdministrador(id, login, senha, tipo, nome, documento):
+def inserirAdministrador(login, senha, tipo, nome, documento):
     p = Administrador(999, login, senha, tipo, nome, documento)
 
     p = AdministradorDAO.inserir(p)

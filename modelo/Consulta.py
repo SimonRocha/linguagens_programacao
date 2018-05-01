@@ -1,6 +1,6 @@
 class Consulta(object):
 
-    def __init__(self, id, usuarioRegistro, medico, paciente, auxiliares, dt_registro, dt_consulta, status):
+    def __init__(self, id, usuarioRegistro, medico, paciente, auxiliares, dt_registro, dt_consulta, status, valor):
         self.__id = id
         self.__usuarioRegistro = usuarioRegistro
         self.__medico = medico
@@ -9,6 +9,7 @@ class Consulta(object):
         self.__dt_registro = dt_registro
         self.__dt_consulta = dt_consulta
         self.__status = status
+        self.__valor = valor
 
     def getId(self):
         return self.__id
@@ -57,3 +58,9 @@ class Consulta(object):
 
     def setStatus(self, id_valor):
         self.__status = id_valor
+
+    def getValor(self):
+        return self.__valor
+
+    def setValor(self, id_valor):
+        self.__valor = id_valor
