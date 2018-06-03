@@ -1,6 +1,6 @@
-class Usuario(object):
+usuarioLogado = None
 
-    usuarioLogado = None
+class Usuario(object):
 
     def __init__(self, id, login, senha, tipo, nome, documento):
         self.__id = id

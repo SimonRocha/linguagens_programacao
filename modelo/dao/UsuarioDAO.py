@@ -1,4 +1,4 @@
-from conexao.Conector import connect
+from linguagens_programacao.conexoes.Conector import connect
 from linguagens_programacao.modelo.Usuario import Usuario
 
 def login(login, senha):
@@ -13,6 +13,7 @@ def login(login, senha):
     usuario = None
     for (id, login, senha, tipo) in cursor:
         usuario = Usuario(id, login, senha, tipo)
+        Usuario.usuarioLogado = usuario
 
     cursor.close()
     cnx.close()
