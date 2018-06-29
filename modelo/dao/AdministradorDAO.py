@@ -21,7 +21,7 @@ def inserir(administrador):
 
     cursor.close()
     cnx.close()
-    return administrador.id
+    return administrador
 
 def delete(id):
     cnx = connect()

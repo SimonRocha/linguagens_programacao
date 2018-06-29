@@ -68,13 +68,13 @@ def buscarTodos():
     cnx.close()
     return consultas
 
-def buscarTodosData(dt_inicio, dt_fim, valor):
+def buscarTodosData(dt_inicio, dt_fim):
     cnx = connect()
     cursor = cnx.cursor()
 
     query = ("SELECT idConsulta, Usuario_id, id_medico, Paciente_idPaciente, dt_registro, dt_consulta, status, valor FROM consulta WHERE dt_consulta between %s and %s")
 
-    cursor.execute(query, (dt_inicio, dt_fim, valor))
+    cursor.execute(query, (dt_inicio, dt_fim))
 
     result = cursor.fetchall()
 

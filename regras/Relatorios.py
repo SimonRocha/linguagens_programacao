@@ -49,5 +49,4 @@ def folhaPagamento(dt_inicio, dt_fim):
 
     return valorTotal
 
-print(folhaPagamento("",""))
 

@@ -62,7 +62,6 @@ def buscarTodos():
     result = cursor.fetchall()
 
     medicos = []
-    print(result)
     for x in result:
         medicos.append(createMedicoT(x))
 

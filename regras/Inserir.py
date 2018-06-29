@@ -27,12 +27,16 @@ def inserirPaciente(nome, documento, dt_nascimento, dt_entrada):
 
 
 def inserirAdministrador(login, senha, tipo, nome, documento):
-        p = inserirLambda(AdministradorDAO.inserir, Usuario.usuarioLogado.getTipo(),
-                          Administrador(999, login, senha, tipo, nome, documento))
+        try:
+            p = inserirLambda(AdministradorDAO.inserir, Usuario.usuarioLogado.getTipo(),
+                              Administrador(999, login, senha, tipo, nome, documento))
 
-        if (p != None):
-            return p
-        else:
+            if (p != None):
+                return p
+            else:
+                return 0
+        except:
+            print("Insersão inválida")
             return 0
 
 
@@ -44,6 +48,7 @@ def inserirAuxiliar(login, senha, tipo, nome, documento, funcao):
         return p
     else:
         return 0
+
 
 
 
@@ -66,7 +71,11 @@ def inserirMedico(login, senha, tipo, nome, documento, especializacao):
         return 0
 
 
-def inserirConsulta(nome,  usuarioRegistro, medico, paciente, auxiliares, dt_registro, dt_consulta, status, valor):
+def inserirConsulta( usuarioRegistro, medico, paciente, auxiliares, dt_registro, dt_consulta, status, valor):
+    usuarioRegistro = UsuarioDAO.buscar(usuarioRegistro)
+    medico = MedicoDAO.buscar(medico)
+    paciente = PacienteDAO.buscar(paciente)
+
     p = inserirLambdaFree(ConsultaDAO.inserir,
                       Consulta(999, usuarioRegistro, medico, paciente, auxiliares, dt_registro, dt_consulta, status, valor))
 
