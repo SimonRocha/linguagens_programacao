@@ -1,4 +1,3 @@
-usuarioLogado = None
 
 class Usuario(object):
 
@@ -9,18 +8,18 @@ class Usuario(object):
         self.__nome = nome
         self.__documento = documento
         self.__tipo = tipo
-        
+
     def getId(self):
         return self.__id
 
     def setId(self, id_valor):
-       self.__id = id_valor
+        self.__id = id_valor
 
     def getNome(self):
-        return self.__id
+        return self.__nome
 
     def setNome(self, id_valor):
-        self.__id = id_valor
+        self.__nome = id_valor
 
     def getDocumento(self):
         return self.__documento
@@ -32,17 +31,30 @@ class Usuario(object):
         return self.__login
 
     def setLogin(self, login_valor):
-       self.__login = login_valor
-       
+        self.__login = login_valor
+
     def getSenha(self):
         return self.__senha
 
     def setSenha(self, senha_valor):
-       self.__senha = senha_valor
-       
+        self.__senha = senha_valor
+
     def getTipo(self):
-       return self.__tipo
+        return self.__tipo
 
     def setTipo(self, tipo_valor):
-       self.__tipo = tipo_valor
-       
+        self.__tipo = tipo_valor
+
+
+usuarioLogado = Usuario(2, "sims", "simss", 2, "zimon", "asdasdea")
+
+
+
+
+
+
+
+
+
+
+

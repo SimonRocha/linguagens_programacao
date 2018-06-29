@@ -9,6 +9,17 @@ def listarTodosPaciente():
     else:
         return 0
 
+def listarTodosPacienteNome(nome):
+    todos = PacienteDAO.buscarTodos()
+
+    filtrados = list(filter(lambda paciente: paciente.getPaciente().getNome() == nome, todos))
+    return filtrados
+
+    if (todos != None):
+        return todos
+    else:
+        return 0
+
 
 def listarTodosAdministrador():
     todos = AdministradorDAO.buscarTodos()
@@ -44,6 +55,44 @@ def listarTodosConsulta():
         return todos
     else:
         return 0
+
+
+def listarTodasConsultasPacienteId(id_paciente):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getPaciente().getId() == id_paciente, todos))
+    return filtrados
+
+def listarTodasConsultasPacienteNome(nome):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getPaciente().getNome() == nome, todos))
+    return filtrados
+
+def listarTodasConsultasMedicoId(id):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getMedico().getId() == id, todos))
+    return filtrados
+
+def listarTodasConsultasMedicoNome(nome):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getMedico().getNome() == nome, todos))
+    return filtrados
+
+
+def listarTodasConsultasUsuarioId(id):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getUsuarioRegistro().getId() == id, todos))
+    return filtrados
+
+def listarTodasConsultasUsuarioNome(nome):
+    todos = ConsultaDAO.buscarTodos()
+
+    filtrados = list(filter(lambda consulta: consulta.getUsuarioRegistro().getNome() == nome, todos))
+    return filtrados
 
 
 def listarTodosMedico():

@@ -14,16 +14,16 @@ class Paciente(object):
         self.__id = id_valor
 
     def getNome(self):
-        return self.__id
+        return self.__nome
 
     def setNome(self, id_valor):
-        self.__id = id_valor
+        self.__nome = id_valor
 
     def getDocumento(self):
-        return self.__id
+        return self.__documento
 
     def setDocumento(self, id_valor):
-        self.__id = id_valor
+        self.__documento = id_valor
 
     def getDt_nascimento(self):
         return self.__dt_nascimento

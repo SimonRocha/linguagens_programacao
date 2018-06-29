@@ -11,6 +11,7 @@ class Consulta(object):
         self.__status = status
         self.__valor = valor
 
+
     def getId(self):
         return self.__id
 

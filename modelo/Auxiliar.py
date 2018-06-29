@@ -6,10 +6,10 @@ class Auxiliar(Usuario):
         super().__init__( id, login, senha, tipo, nome, documento)
         self.__funcao = funcao
 
-        def getFuncao(self):
-            return self.__funcao
+    def getFuncao(self):
+        return self.__funcao
 
-        def setFuncao(self, id_valor):
-            self.__funcao = id_valor
+    def setFuncao(self, id_valor):
+        self.__funcao = id_valor
 
 

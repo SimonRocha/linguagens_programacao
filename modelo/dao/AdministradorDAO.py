@@ -2,12 +2,18 @@ from linguagens_programacao.conexoes.Conector import connect
 from linguagens_programacao.modelo.Administrador import Administrador
 from linguagens_programacao.modelo.dao import UsuarioDAO
 
+createAdministrador = lambda lista: Administrador(UsuarioDAO.buscar(lista[0][0]).getId(), UsuarioDAO.buscar(lista[0][0]).getLogin(), UsuarioDAO.buscar(lista[0][0]).getSenha(), UsuarioDAO.buscar(lista[0][0]).getTipo(), UsuarioDAO.buscar(lista[0][0]).getNome(), UsuarioDAO.buscar(lista[0][0]).getDocumento())
+createAdministradorT = lambda lista: Administrador(UsuarioDAO.buscar(lista[0]).getId(), UsuarioDAO.buscar(lista[0]).getLogin(), UsuarioDAO.buscar(lista[0]).getSenha(), UsuarioDAO.buscar(lista[0]).getTipo(), UsuarioDAO.buscar(lista[0]).getNome(), UsuarioDAO.buscar(lista[0]).getDocumento())
+
+
 def inserir(administrador):
     cnx = connect()
     cursor = cnx.cursor()
 
-    sql_insert = ("INSERT INTO administrador (usuario_id) VALUES (%s, %s)")
-    data_insert = (administrador.especielizacao, administrador.usuario.getId())
+    p = UsuarioDAO.inserir(administrador)
+
+    sql_insert = ("INSERT INTO administrador (usuario_id) VALUES (%s)")
+    data_insert = (p,)
 
     cursor.execute(sql_insert, data_insert)
     administrador.id = cursor.lastrowid
@@ -39,9 +45,8 @@ def buscar(id):
 
     cursor.execute(query, (id, 0))
 
-    administrador = None
-    for (funcao, usuario_id) in cursor:
-        administrador = Administrador(UsuarioDAO.buscar(usuario_id))
+    result = cursor.fetchall()
+    administrador = createAdministrador([x for x in result])
 
     cursor.close()
     cnx.close()
@@ -57,14 +62,14 @@ def buscarTodos():
 
     cursor.execute(query)
 
-    administradors = []
-    for (funcao, usuario_id) in cursor:
-        administrador = Administrador(UsuarioDAO.buscar(usuario_id))
+    result = cursor.fetchall()
+    administradores = []
+    for x in result:
+        administradores.append(createAdministradorT(x))
 
     cursor.close()
     cnx.close()
-    return administradors
-
+    return administradores
 
 
 

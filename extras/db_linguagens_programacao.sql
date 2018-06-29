@@ -1,9 +1,9 @@
 CREATE TABLE Usuario (
   id INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  login VARCHAR  NULL  ,
-  senha VARCHAR  NULL  ,
-  nome VARCHAR  NULL  ,
-  documento VARCHAR  NULL  ,
+  login VARCHAR(100)  NULL  ,
+  senha VARCHAR(100)  NULL  ,
+  nome VARCHAR(100)  NULL  ,
+  documento VARCHAR(100)  NULL  ,
   tipo INTEGER UNSIGNED  NULL    ,
 PRIMARY KEY(id));
 
@@ -11,8 +11,8 @@ PRIMARY KEY(id));
 
 CREATE TABLE Paciente (
   idPaciente INTEGER UNSIGNED  NOT NULL   AUTO_INCREMENT,
-  nome VARCHAR  NULL  ,
-  documento VARCHAR  NULL  ,
+  nome VARCHAR(100)  NULL  ,
+  documento VARCHAR(100)  NULL  ,
   dt_nascimento DATE  NULL  ,
   dt_entrada DATE  NULL    ,
 PRIMARY KEY(idPaciente));
@@ -20,7 +20,7 @@ PRIMARY KEY(idPaciente));
 
 
 CREATE TABLE Medico (
-  especializacao VARCHAR  NOT NULL   AUTO_INCREMENT,
+  especializacao VARCHAR(100)  NOT NULL,
   Usuario_id INTEGER UNSIGNED  NOT NULL    ,
 PRIMARY KEY(especializacao)  ,
 INDEX Medico_FKIndex1(Usuario_id),
@@ -52,7 +52,7 @@ INDEX Atendente_FKIndex1(Usuario_id),
 
 
 CREATE TABLE Auxiliar (
-  funcao VARCHAR  NOT NULL   AUTO_INCREMENT,
+  funcao VARCHAR(100)  NOT NULL,
   Usuario_id INTEGER UNSIGNED  NOT NULL    ,
 PRIMARY KEY(funcao)  ,
 INDEX Auxiliar_FKIndex1(Usuario_id),
@@ -104,7 +104,3 @@ INDEX Auxiliares_Consulta_FKIndex2(Consulta_idConsulta),
     REFERENCES Consulta(idConsulta)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
-
-
-
-
